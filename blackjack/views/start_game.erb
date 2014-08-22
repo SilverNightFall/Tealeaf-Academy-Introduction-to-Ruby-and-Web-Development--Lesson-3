@@ -1,0 +1,52 @@
+<h1 class="hit">
+	<%= session[:name] %>, would you like to hit or stay?
+</h1>
+<div class="all_cards well">
+	<div class ="center_cards">
+		<div class="deck well">
+			<p class="card_titles">
+				Deck
+			</p>
+			<img class="deck" src="public/images/cards/card_deck.png" alt="Deck" />
+		</div>
+		<div class="player_cards well">
+			<p class="card_titles">
+				<%= session[:name] %>'s hand:
+			</p>
+			<% session[:player_cards].each do |card| %>
+			<%= show_cards(card) %>
+			<% end %>
+			<p class="total_titles">
+				<%= session[:name] %>'s Total:
+				<%= player_card_value(session[:player_cards]) %>
+			</p>
+			<form action='/hit_or_stay' method='post' class="navbar-form navbar-center">
+				<div class="buttons">
+					<button name="hit_or_stay" value="hit" type="submit" class="myButton">
+						Hit
+					</button>
+				</div>
+			</form>
+			<form action='/hit_or_stay' method='post' class="navbar-form navbar-center">
+				<div class="buttons">
+					<button name="hit_or_stay" value="stay" type="submit" class="myButton">
+						Stay
+					</button>
+				</div>
+			</form>
+		</div>
+		<div class="dealer_cards well">
+			<p class="card_titles">
+				Dealer's hand:
+			</p>
+			<% session[:dealer_cards].each do |card| %>
+			<% if card == session[:dealer_cards][0] %>
+			<img class='cards' src='public/images/cards/cover.jpg' />
+			<% else %>
+			<%= show_cards(card) %>
+			<% end %>
+			<% end %>
+			<br />
+		</div>
+	</div>
+</div>

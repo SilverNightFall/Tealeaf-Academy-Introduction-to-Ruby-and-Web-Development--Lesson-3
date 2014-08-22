@@ -1,0 +1,54 @@
+<div class="winner">
+    <%= dealer_winner? %>
+    <%= player_winner? %>
+    <%= tie? %>
+    <%= no_winner? %>
+    <%= dealer_busted? %>
+    <%= player_busted? %>
+</div>
+<div class="all_cards well">
+    <div class ="center_cards">
+        <div class="deck well">
+            <p class="card_titles">
+                Deck
+            </p>
+            <img class="deck" src="public/images/cards/card_deck.png" alt="Deck" />
+        </div>
+        <div class="player_cards well">
+            <p class="card_titles">
+                <%= session[:name] %>'s hand:
+            </p>
+            <% session[:player_cards].each do |card| %>
+            <%= show_cards(card) %>
+            <% end %>
+            <p class="total_titles">
+                <%= session[:name] %>'s Total: <%= player_card_value(session[:player_cards]) %>
+            </p>
+        </div>
+        <div class="dealer_cards well">
+            <p class="card_titles">Dealer's hand:
+            </p>
+            <% session[:dealer_cards].each do |card| %>
+            <%= show_cards(card) %>
+            <% end %>
+            <p class="total_titles">Dealer's Total:
+                <%= player_card_value(session[:dealer_cards]) %>
+            </p>
+            <br />
+        </div>
+    </div>
+</div>
+<div class="another_round">
+    <h2 class="round">
+        Would you like to play another round of Blackjack?
+    </h2>
+    <form action='/winner' method='post' class="navbar-form navbar-center">
+        <div class="buttons">
+            <button name="play_round" value="yes" type="submit" class="myButton">Yes
+            </button>
+            <button name="play_round" value="no" type="submit" class="myButton">
+                No
+            </button>
+        </div>
+    </form>
+</div>

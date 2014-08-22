@@ -1,0 +1,52 @@
+Quiz: Lesson 3
+
+Please review this quiz, which covers lesson 3 materials.
+
+What is HTML? What is CSS? What is Javascript?
+  HTML is a markup language used to create web documents.
+  CSS is a language used to design a document using a markup language like HTML.
+  Javascript is a language that makes web pages interactive.
+
+What are the major parts of an HTTP request?
+  URL, Verbs/methods like GET, POST and Parameters like Headers
+
+What are the major parts of an HTTP response?
+  Status code, payload (message)
+
+How do you submit an HTTP POST request, with a "username" attribute set to "bob"? What if we wanted a GET request instead?
+  <form method="post">
+    <input type="text" name="username" value="bob" />
+  </form>
+
+  url?username=bob
+
+Why is it important for us, as web developers, to understand that HTTP is a "stateless" protocol?
+  To understand that it doesnt not keep a consistant connection without using a database.
+
+
+If the internet is just HTTP requests/responses, why do we only use browsers to interface with web applications? Are there any other options?
+  Yes
+  You can use things like curl or Postman
+
+What is MVC, and why is it important?
+  It is a way to organize code into Models, Views, and Controllers.  Database related logic goes in the Model, the markup language goes in the View and the Controller is used to pass data between the Model and View.
+
+
+The below questions are about Sinatra:
+
+At a high level, how are requests processed?
+  Requests are processed based by rendering an erb template or a redirect
+
+In the controller/action, what's the difference between rendering and redirecting?
+  Rendering is responding back to the original request and returns text for the browser to parse.  Redirecting is sending you to a new request by telling the browser to send a new "GET" request to the redirect URL.
+
+In the ERB view template, how do you show dynamic content?
+  By wrapping an instance variable, helper method, session in <%= %>.  If you dont want the content to be seen you wrap it in <% %>.
+
+Given what you know about ERB templates, when do you suppose the ERB template is turned into HTML?
+  Sinatra compiles the ERB template into pure HTML after every request.
+
+What's the role of instance variables in Sinatra?
+  Setup varibles to use in the template.
+
+
